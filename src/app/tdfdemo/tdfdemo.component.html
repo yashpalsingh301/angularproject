@@ -1,0 +1,50 @@
+<!-- <form #myForm=ngForm  (ngSubmit)="registerUser()"> -->
+    <form #myForm=ngForm (ngSubmit)="registerUser(myForm)">
+    <!-- {{ngForm.value|json}}<br>
+    {{reg|json}}<br> -->
+
+    <!-- {{myForm.invalid}} -->
+
+    <label for="uname">User Name</label>
+   
+    <input type="text" name="uname" #un=ngModel minlength="5" id="uname" [(ngModel)]="reg.userName"><br>
+    <!-- {{un.className}}<br> -->
+    <!-- {{un.touched}}  {{un.dirty}}  {{un.invalid}}<br> -->
+    <div *ngIf="un.invalid && (un.dirty||un.touched)" style="color:red;">
+        <div *ngIf="un.errors?.required">Name is required</div>>
+        <div *ngIf="un.errors?.minlength">must contain 4 letter</div>
+    </div>
+   
+    
+    
+    <input type="text" required  #up='ngModel' minlength="8"
+    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+    name="upass" placeholder="enter Password" [(ngModel)]="reg.userPassword"><br>
+    <!-- {{up.className}} <br> -->
+     
+    <div *ngIf="up.invalid && (up.dirty||up.touched)" style="color:red;">
+        <div *ngIf="up.errors?.required">Password is required</div>>
+        <div *ngIf="up.errors?.pattern">must contain 8 char</div>
+
+    </div>
+
+
+
+
+    <input type="email" name="email" required #uc='ngModel' minlength="8"
+    pattern="[a-z0-9._%+-]+@[a-z0-9-]+\.[a-z]{2,4}$"
+    id="email" [(ngModel)]="reg.userEmail" placeholder="enter email"><br>
+
+    <div *ngIf="uc.invalid && (uc.dirty||uc.touched)" style="color:red;">
+        <div *ngIf="uc.errors?.required">Email is required</div>>
+        <div *ngIf="uc.errors?.minlength">must be strong</div>
+
+    </div>
+    
+    <input type="text" placeholder="enter mobile number" required 
+    
+    name="mobile" id="mobile" [(ngModel)]="reg.userPhone"><br>
+   
+    <!-- [disable]='myForm.invalid' -->
+    <button [disabled]='myForm.invalid' type="submit">Register</button>
+</form>

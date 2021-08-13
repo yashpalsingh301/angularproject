@@ -1,0 +1,26 @@
+ul{
+    
+    overflow: auto;
+}
+
+li{text-decoration: none;
+    list-style: none;
+    float: left;
+    margin: 5px;
+    overflow:hidden;
+    
+}
+
+a{
+    text-decoration: none;
+}
+
+h1{
+    text-align: center;
+    
+}
+
+#footer{
+    
+    text-align: center;
+}

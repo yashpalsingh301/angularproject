@@ -1,0 +1,25 @@
+<button (click)="sayhello()">Click</button>
+<div (click)="divClick()">click here</div>
+<div (click)="luckyno()">number is:{{rand}}</div>
+<!-- <button (click)="luckyno()">generate</button> -->
+<input type="text" (input)="getText($event)">
+<div>{{textvalue}}</div>
+
+<!-- Enable:<input type="radio" name="Enable"  (input)="getBool($event)">   
+Disable:<input type="radio" name="Enable" ><br> -->
+
+Enter your name: <input type="text" [(ngModel)]='name'><br>
+<button (click)="onClick">hello</button>
+
+
+
+<!-- Main:<input type="radio"  > -->
+
+<input type="text" [(ngModel)]='name'/><br> 
+<div [innerHTML]='name'></div><br>
+<br>
+<br>
+
+
+
+

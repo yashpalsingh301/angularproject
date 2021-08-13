@@ -1,0 +1,22 @@
+
+Enter your number: <input  [(ngModel)]="userId" type="number">
+<button (click)="OnClick()">get info</button>
+<p>welcome {{userName}}</p>
+<div>
+    <table>
+        <tr>
+            <th>User Id </th>
+            <th>ID</th>
+            <th>title</th>
+          
+            <th>Body</th>
+        </tr>
+        <tr *ngFor="let comm of commentuser">
+            <td>{{comm.userId}}</td>
+            <td>{{comm.id}}</td>
+            <td>{{comm.title}}</td>
+            <!-- <td>{{comm.email}}</td> -->
+            <td>{{comm.body}}</td>
+        </tr>
+    </table>
+</div>

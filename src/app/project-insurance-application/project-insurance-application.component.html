@@ -1,0 +1,80 @@
+<div id="page">
+    <h2 id="heading">Insurance Application Form</h2>
+    <form  #Inssurance="ngForm" (submit)="add(Inssurance)">
+
+        <label for="season" >Season</label>:<br>
+        <input type="text"  id="season" [(ngModel)]="Season"  name="Season" #season="ngModel"   required/><br><br>
+         <!-- {{season.touched}}  {{season.dirty}}  {{season.invalid}}<br>  -->
+        <div *ngIf="season.invalid && (season.dirty||season.touched)"> 
+            <div *ngIf="season.errors?.required" style="color: red;">Season is required</div><br>
+        </div>
+            
+        
+        <label for="year">Year</label>:<br>
+        <input type="text" id="year" [(ngModel)]="Year" name="Year" #year="ngModel" required  minlength="4" pattern="^[0-9]+$"/><br><br>
+        <div *ngIf="year.invalid && (year.dirty||year.touched)"> 
+            <div *ngIf="year.errors?.required" style="color: red;">Year is required</div>
+            <div *ngIf="year.errors?.pattern" style="color: red;">Enter correct year</div>
+            <div *ngIf="year.errors?.minlength" style="color: red;">must contain 4 digit</div><br>
+        </div>
+
+        <label for="crop">Crop</label>:<br>
+        <input type="text" id="crop" [(ngModel)]="Crop" name="Crop" #crop="ngModel" required /><br><br>
+        <div *ngIf="crop.invalid && (crop.dirty||crop.touched)"> 
+            <div *ngIf="crop.errors?.required" style="color: red;">Crop name is required</div><br>
+        </div>
+
+        <label for="Sum_inc">Sum Insured</label>:<br>
+        <input type="text" id="Sum_inc"  [(ngModel)]="Sum" name="Sum" #sum="ngModel" required/><br><br>
+        <div *ngIf="sum.invalid && (sum.dirty||sum.touched)"> 
+            <div *ngIf="sum.errors?.required" style="color: red;">Sum name is required</div><br>
+        </div>
+
+        <label for="area">Area</label>:<br>
+        <input type="text" id="area"  [(ngModel)]="Area" name="Area" #area="ngModel" required/><br><br>
+        <div *ngIf="area.invalid && (area.dirty||area.touched)"> 
+            <div *ngIf="area.errors?.required" style="color: red;">Sum name is required</div><br>
+        </div>
+
+        <button type="reset" id="reset">Reset</button>
+        <button type="submit" id="calculate" [disabled]="Inssurance.invalid">Calculate</button><br><br><br>
+
+    </form>
+
+    <!-- table part is from here -->
+
+    <table>
+        <tr>
+            <th>Insurance Company</th>
+            <th>Sum Insured(per hectare)</th>
+            <th>Share Premium</th>
+            <th>Premium Amount</th>
+            <th>Crop Name</th>
+            <th>Area</th>
+            <th>Sum Insured</th>
+        </tr>
+
+        <tr>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+
+    </table>
+
+    <button  type="submit" id="apply">Apply</button>
+</div>

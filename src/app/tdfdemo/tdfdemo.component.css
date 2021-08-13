@@ -1,0 +1,14 @@
+form{
+    width: 80%;
+    border: 2px red solid;
+    margin: auto;
+}
+
+input{
+    margin :12px;
+
+}
+
+input.ng-invalid.ng-dirty{
+    border: 1px orange solid;
+}
